@@ -1,0 +1,28 @@
+body{
+
+     background-color: white;
+}
+
+
+
+.navbar-toggler-icon{
+    color: white;
+    border: solid 1px white;
+}
+
+label{
+    color: grey;
+}
+
+h2, h3, h4, h5{
+    color: grey;
+}
+
+p{
+    color: grey;
+}
+
+.card{
+    border: 2px solid grey!important;
+    border-radius: 10px!important;
+}
