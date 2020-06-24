@@ -30,8 +30,8 @@ const postSchema = new mongoose.Schema({
     created: {
         type: Date,
         default: Date.now
-    }
-
+    },
+    likes: [{ type: ObjectId, ref: 'Hospital'}]
 });
 
 module.exports = mongoose.model('Post', postSchema);

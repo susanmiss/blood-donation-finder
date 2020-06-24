@@ -1,0 +1,41 @@
+body{
+
+     background-color: white;
+
+}
+
+nav{
+    background-color: rgb(235, 181, 178)!important;
+}
+
+
+
+label{
+    color: grey;
+}
+
+h2, h3, h4, h5{
+    color: grey;
+}
+
+p{
+    color: grey;
+}
+
+.card{
+    border: 2px solid grey!important;
+    border-radius: 10px!important;
+}
+
+.btn-danger{
+    background-color:  rgb(235, 181, 178)!important;
+    border-color: rgb(235, 181, 178)!important;
+}
+
+.bg-danger{
+    background-color:  rgb(235, 181, 178)!important;
+}
+
+.btn-outline-secondary{
+    border: grey solid 2px;
+}

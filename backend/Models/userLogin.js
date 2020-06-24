@@ -37,6 +37,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "subscriber"
     },
+    lastTimeDonation: {
+        type: Date
+    },
+    bloodType: {
+        type: String
+    },
     following: [{type: ObjectId, ref: "User"}],
     followingHospital: [{type: ObjectId, ref: "Hospital"}],
     followers: [{type: ObjectId, ref: "User"}]
