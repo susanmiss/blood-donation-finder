@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/hospitalAuth";
 
 class SigninHospital extends Component {
@@ -131,6 +131,12 @@ class SigninHospital extends Component {
             Login
           </button>
         </form>
+        <p>
+        <Link to="/forgot-password" className="text-danger">
+            {" "}
+            Forgot Password
+        </Link>
+        </p>
       </div>
     );
   }

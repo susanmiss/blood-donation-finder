@@ -91,7 +91,7 @@ class AllPosts extends Component {
 
                     <div className="col-md-6 mt-1">
                       <Link
-                        to={`/post/${post._id}`}
+                        to={`/send-email`}
                         className="btn btn-danger btn-block"
                       >
                         Chat Online/Send Email{" "}

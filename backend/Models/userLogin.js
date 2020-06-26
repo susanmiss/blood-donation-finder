@@ -38,10 +38,14 @@ const userSchema = new mongoose.Schema({
         default: "subscriber"
     },
     lastTimeDonation: {
-        type: Date
+        type: String
     },
     bloodType: {
         type: String
+    },
+    resetPasswordLink: {
+        data: String,
+        default: ""
     },
     following: [{type: ObjectId, ref: "User"}],
     followingHospital: [{type: ObjectId, ref: "Hospital"}],

@@ -46,6 +46,10 @@ const hospitalSchema = new mongoose.Schema({
     photo: {
         data: Buffer,
         contentType: String
+    },
+    resetPasswordLink: {
+        data: String,
+        default: ""
     }
   
 });

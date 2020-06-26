@@ -5,6 +5,7 @@ import DefaultAvatar from "../images/hospitalAvatar.png";
 import { isAuthenticated } from "../auth/hospitalAuth";
 import { Redirect, Link } from "react-router-dom";
 import {like, unlike } from './apiPost'
+import Comment from './Comment'
 
 class SinglePost extends Component {
   constructor() {
@@ -15,12 +16,13 @@ class SinglePost extends Component {
       redirectToSignIn: false,
       hospital: "",
       like: false,
-      likes: 0
+      likes: 0,
+      comments: []
     };
   }
 
   checkLike = (likes) => {
-    const userId = isAuthenticated && isAuthenticated().user._id
+    const userId = isAuthenticated() && isAuthenticated().user._id
     //indexOf return -1 if not found
     let match = likes.indexOf(userId) !== -1;
     return match;
@@ -104,13 +106,20 @@ class SinglePost extends Component {
         this.setState({ 
           post: data, 
           likes: data.likes.length,
-          like: this.checkLike(data.likes) });
+          like: this.checkLike(data.likes),
+          comments: data.comments
+        });
+          
       }
     });
   };
 
+  updateComments = comments => {
+    this.setState({ comments})
+  }
+
   render() {
-    const { post, redirectToProfile, hospital , like, likes} = this.state;
+    const { post, redirectToProfile, hospital , like, likes, comments} = this.state;
 
     if (redirectToProfile) {
       return <Redirect to={`/dashboard-hospital/${hospital._id}`} />;
@@ -131,7 +140,7 @@ class SinglePost extends Component {
             <br />
 
             <h5 className="card-text text-center">
-              {likes} Likes/Potencial Number of People going to Donate so far.
+              {likes} Potencial Number of People Going to Donate so far.
             </h5>
 
 
@@ -171,7 +180,7 @@ class SinglePost extends Component {
 
               <div className="col-md-6 mt-1">
                 <Link
-                  to={`/post/${post._id}`}
+                  to={`/send-email`}
                   className="btn btn-danger btn-block"
                 >
                   Chat Online/Send Email{" "}
@@ -181,6 +190,8 @@ class SinglePost extends Component {
 
             {isAuthenticated().hospital &&
               isAuthenticated().hospital._id === post.postedBy._id && (
+
+
                 <div className="row mb-1">
                   <div className="col-md-6">
                     <Link
@@ -203,6 +214,7 @@ class SinglePost extends Component {
               )}
           </div>
         )}
+        <Comment postId={post._id} comments={comments.reverse()} updateComments={this.updateComments}/>
       </div>
     );
   }

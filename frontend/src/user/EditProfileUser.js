@@ -110,6 +110,7 @@ class EditProfileUser extends Component {
         lastTimeDonation,
         bloodType,
       } = this.state;
+
       const user = {
         name,
         email,
@@ -160,12 +161,21 @@ class EditProfileUser extends Component {
 
       <div className="form-group">
         <label>Blood Type</label>
-        <input
+        <select
           onChange={this.handleChange("bloodType")}
           value={bloodType}
           type="text"
           className="form-control"
-        />
+        >
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB-">AB-</option>
+          <option value="AB+">AB+</option>
+        </select>
       </div>
 
       <div className="form-group">
@@ -212,7 +222,7 @@ class EditProfileUser extends Component {
     } = this.state;
 
     if (redirectToProfile) {
-      return <Redirect to={`/dashboard-user/${id}`} />;
+      return <Redirect to={`/dashboard-user/${id}`} />
     }
 
     return (

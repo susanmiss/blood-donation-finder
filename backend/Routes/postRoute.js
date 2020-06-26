@@ -1,5 +1,5 @@
 const express = require('express');
-const {getDummyPosts, getPosts, createPost, postsByHospital, deletePost,isPoster, updatePost, singlePost, like, unlike} = require('../Controllers/postController')
+const {getDummyPosts, getPosts, createPost, postsByHospital, deletePost,isPoster, updatePost, singlePost, like, unlike, comment, uncomment} = require('../Controllers/postController')
 const { requireHospitalSignin } = require('../Controllers/authController');
 const { requireSignin } = require('../Controllers/authController')
 const {hospitalById} = require('../Controllers/hospitalController')
@@ -14,8 +14,15 @@ const router = express.Router();
 // //Get routes: 
 router.get('/dummyposts', getDummyPosts);
 router.get('/posts', getPosts);
+
+//likes/I will go donate
 router.put('/post/like', requireSignin, like)
 router.put('/post/unlike', requireSignin, unlike)
+
+//comments
+router.put('/post/comment', requireSignin, comment)
+router.put('/post/uncomment', requireSignin, uncomment)
+
 router.post('/post/new/:hospitalId' , createPost); //createPostValidator goes in the end:
 router.get('/post/:postId', singlePost)
 

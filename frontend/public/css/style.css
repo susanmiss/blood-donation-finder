@@ -4,9 +4,10 @@ body{
 
 }
 
-nav{
+
+/* nav{
     background-color: rgb(235, 181, 178)!important;
-}
+} */
 
 
 
@@ -27,14 +28,14 @@ p{
     border-radius: 10px!important;
 }
 
-.btn-danger{
+/* .btn-danger{
     background-color:  rgb(235, 181, 178)!important;
     border-color: rgb(235, 181, 178)!important;
-}
+} */
 
-.bg-danger{
+/* .bg-danger{
     background-color:  rgb(235, 181, 178)!important;
-}
+} */
 
 .btn-outline-secondary{
     border: grey solid 2px;

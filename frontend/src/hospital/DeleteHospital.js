@@ -62,7 +62,7 @@ class DeleteHospital extends Component {
         onClick={this.deleteConfirmed}
         className="btn btn-raised btn-dark"
       >
-        Delete Hospital/Clinic
+        Delete Hospital
       </button>
     );
   }

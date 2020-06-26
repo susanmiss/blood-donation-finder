@@ -3,7 +3,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Logo from "../images/agua.png";
-import Menu from '../images/menu.png'
+import Menu from "../images/menu.png";
 // import { isAuthenticated } from '../auth';
 
 const isActive = (history, path) => {
@@ -56,8 +56,8 @@ const Nav = ({ history }) => (
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"> 
-          <img src={Menu} style={{width: "40px"}} />
+        <span className="navbar-toggler-icon">
+          <img src={Menu} style={{ width: "40px" }} />
         </span>
       </button>
 
@@ -81,20 +81,22 @@ const Nav = ({ history }) => (
             Who Can Donate?
           </Link>
 
-          {/* <Link className="nav-item nav-link " to="/about" style={isActive(history,"/about" )}>About</Link> */}
+
 
           {/* Use a not Link becaouse we are  not trying to navigate the iuser to any other component */}
 
           {/* CONDICIONAL: to display signout just when is logged In */}
 
-          {isAuthenticated() && (
+          {isAuthenticated().user && (
             <>
-              {/* <Link className="nav-item nav-link"
-                            to={`/user/${isAuthenticated().user._id}`} 
-                            style={isActive(history,`/user/${isAuthenticated().user._id}`)}>
-                                My USER Profile</Link>
+              <Link
+                className="nav-item nav-link"
+                to={`/dashboard-user/${isAuthenticated().user._id}`}
+                style={isActive(history, `/dashboard-user/${isAuthenticated().user._id}`)}
+              >
+                My USER Profile
+              </Link>
 
-                            <Link className="nav-item nav-link" to={`/hospital/${isAuthenticated().hospital._id} `}style={isActive(history,`/hospital/${isAuthenticated().hospital._id} ` )}>My HOSPITAL Profile</Link> */}
               <Link
                 className="nav-item nav-link"
                 to="/find-people"
@@ -109,6 +111,30 @@ const Nav = ({ history }) => (
                 style={isActive(history, "/all-users")}
               >
                 All Users
+              </Link>
+
+              <Link
+                to=""
+                onClick={() => signout(() => history.push("/"))}
+                className="nav-item nav-link"
+                style={{ cursor: "pointer", color: "darkred" }}
+              >
+                SignOut
+              </Link>
+            </>
+          )}
+
+          {isAuthenticated().hospital && (
+            <>
+              <Link
+                className="nav-item nav-link"
+                to={`/dashboard-hospital/${isAuthenticated().hospital._id} `}
+                style={isActive(
+                  history,
+                  `/dashboard-hospital/${isAuthenticated().hospital._id} `
+                )}
+              >
+                My HOSPITAL Profile
               </Link>
 
               <Link

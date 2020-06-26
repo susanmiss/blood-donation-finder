@@ -23,6 +23,10 @@ import FindPeople from "./user/FindPeople";
 import NewPost from "./post/NewPost";
 import SinglePost from "./post/SinglePost";
 import EditPost from "./post/EditPost";
+import ForgotPassword from "./auth/ForgotPassword";
+import ResetPassword from "./auth/ResetPassword";
+import SendEmail from './hospital/SendEmail'
+
 
 const MainRouter = () => (
   <div>
@@ -59,8 +63,14 @@ const MainRouter = () => (
       <Route exact path="/post/create" component={NewPost} />
       <Route exact path="/post/:postId" component={SinglePost} />
       <PrivateRoute exact path="/post/edit/:postId" component={EditPost} />
+      <Route exact path="/forgot-password" component={ForgotPassword} />
+      <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword}
+/>
+      <Route exact path="/send-email" component={SendEmail}
+/>
+
     </Switch>
-    <Footer />
+  <Footer />
   </div>
 );
 

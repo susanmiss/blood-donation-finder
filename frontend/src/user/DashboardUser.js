@@ -18,35 +18,53 @@ class DasboardUser extends Component {
       redirectToSignIn: false,
       following: false,
       error: "",
-      days: 56,
+      days: "",
       nextDate: "",
-      lastTimeDonation: ''
+      open: false,
     };
   }
 
+
+
+
   addDay = () => {
-    const days = this.state.days
-    this.setState({ days: days + 2 })
-  }
-
-  addDate = () => {
-    const nextDate = this.state.user.lastTimeDonation
+    let startDate = new Date();
+    let endDate   = new Date(this.state.nextDate);
+    let timeDiff  = (new Date(startDate)) - (new Date(endDate));
+    const days    = parseInt(timeDiff / (1000 * 60 * 60 * 24))
+    console.log("Days " +  days)
+    // alert(days)
+    if( days <= 0 ){
+       let newDay =  Math.abs(days)
+      console.log(` You still need to wait ${newDay} days to donate again.` )
+    }else{
+      console.log(`You already can donate. Have been more than 60 days since your last donation`)
+    }
     this.setState({
-      lastTimeDonation: this.state.user.lastTimeDonation
+      days: Math.abs(days)
     })
+  
+  };
 
-  }
 
-  componentWillMount(){
-    // this.addDay();
-    this.addDate();
-  }
+
+
+ addDate = () => {
+  let nextDate = new Date(this.state.user.lastTimeDonation);
+  nextDate.setMonth(nextDate.getMonth() + 2);
+  this.setState({
+        nextDate: nextDate,
+        open: true
+      });
+  };
 
   componentDidMount() {
     const userId = this.props.match.params.userId;
     this.init(userId);
-    
+
   }
+
+ 
 
   // check follow
   checkFollow = (user) => {
@@ -89,7 +107,7 @@ class DasboardUser extends Component {
   }
 
   render() {
-    const { redirectToSignIn, user, nextTimeDonation } = this.state;
+    const { redirectToSignIn, user, nextDate, open, days } = this.state;
     if (redirectToSignIn) return <Redirect to="/signin-user" />;
 
     return (
@@ -134,33 +152,49 @@ class DasboardUser extends Component {
               Blood Type:{" "}
               <span style={{ fontSize: "30px" }}>{user.bloodType}</span>
             </p>
+
             <p>{user.email}</p>
+
             <p>
               Last time donation:{" "}
               {new Date(user.lastTimeDonation).toDateString()}
             </p>
-            <p>
-              Next Time to Donate:{" "}
-              {/* {this.addDate} */}
-              {/* {this.state.days} */}
-              {/* {this.state.user.lastTimeDonation} */}
-              {this.state.nextDate}
-            </p>
 
-          
-            <p>{`You can donate again in ${nextTimeDonation} days! `}</p>
-            <div class="progress">
+         
+
+             <button onClick={this.addDate} className="btn btn-danger">
+              Check next Date you can donate again!
+            </button>
+            <br />
+
+            {open ? (
+              <p className="text-warning mt-5">
+                You can donate again in {new Date(nextDate).toDateString()}{" "}
+                <button className="btn btn-outline-danger mt-5" onClick={this.addDay}>Click here to check how many days left to Donate again: </button>
+                <span style={{fontSize: "30px"}}>{days}</span>
+
+              </p>
+            ) : (
+              ""
+            )} 
+            
+           
+        
+            <br />
+
+            {/* <div class="progress">
               <div
-                className="progress-bar progress-bar-info progress-bar-striped"
+                className="progress-bar progress-bar-success progress-bar-striped"
                 role="progressbar"
                 aria-valuenow="80"
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style={{ width: "80%" }}
               >
-                <span className="sr-only">80% Complete </span>
+                <span> % </span>
               </div>
-            </div>
+            </div> */}
+            {/* <p>{`${days} days left for you be able to donate again `}</p> */}
           </div>
         </div>
         <hr />
