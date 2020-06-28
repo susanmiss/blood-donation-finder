@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Blood Donation Finder
+Blood Donation Finder is a project about people who want donate blood and Hospital/Clinics in need. The Hospitals can send a post to the website and the users can interage informing the hospital if they are going, send emails, and in their own dashboard can see last and next time to donate.
+MERN Technology has been used in this app.
+## Quick Look
 
-## Available Scripts
+![BloodDonationFinder cover](./frontend/public/blood-cover.png)
 
-In the project directory, you can run:
+## Technologies
+- MongoDB
+- Express
+- React
+- Node.js
+- Bootstrap
+- Nodemailer
 
-### `npm start`
+## How to Use
+There are 2 folders inside this repo. Clone the repo.
+Create .env files to frontend and backend folders and paste as follow:
+```
+- - -  Information to paste in .env files - - -
+- Backend, use:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+PORT = 8000
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+DATABASE = mongodb+srv://susan:D8xAOvv9yrUyVDN0@blood-fgfbu.mongodb.net/test?retryWrites=true&w=majority
 
-### `npm test`
+JWT_SECRET=SLKFSLIFJGH9457309530SNLSNVLSKDNVLS
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+CLIENT_URL=http://localhost:3000
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Frontend use:
+REACT_APP_API_URL=http://localhost:8000/api
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+After run npm install to ech folder and then npm start to each folder. To run the tests, go inside frontend folder and npm run test
+```
+  npm install
+  npm start
+  npm run test
+```  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can signup as hospital, in order to create, delete and update a post requesting blood
 
-### `npm run eject`
+You can signup as user to see the posts and check where you can donate.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To signIn as user, use as follow:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+email: user@admin.com  
+password: 12345
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To signIn as hospital, use as follow:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+email: hospital@admin.com  
+password: 12345678
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Pull requests and suggestions are welcome.

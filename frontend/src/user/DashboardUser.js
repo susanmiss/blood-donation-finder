@@ -64,7 +64,6 @@ class DasboardUser extends Component {
 
   }
 
- 
 
   // check follow
   checkFollow = (user) => {
@@ -88,6 +87,7 @@ class DasboardUser extends Component {
       }
     });
   };
+
 
   init = (userId) => {
     const token = isAuthenticated().token;

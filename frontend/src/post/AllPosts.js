@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import DefaultAvatar from "../images/hospitalAvatar.png";
+import { isAuthenticated } from "../auth/hospitalAuth";
 
 class AllPosts extends Component {
   constructor() {
@@ -73,10 +74,11 @@ class AllPosts extends Component {
                   </p>
 
                   <Link
-                    to={`/post/${post._id}`}
-                    className="btn btn-outline-secondary btn-block"
+                    to={`/appointment`}
+                    className="btn btn-block"
+                    style={{backgroundColor: "darkred", color: "white"}}
                   >
-                    Read More
+                    Book your donation Online
                   </Link>
 
                   <div className="row">
@@ -84,8 +86,9 @@ class AllPosts extends Component {
                       <Link
                         to={`/post/${post._id}`}
                         className="btn btn-danger btn-block"
-                      >
-                        I will Donate {" "}
+                      > 
+                          Read More
+                         {" "}
                       </Link>
                     </div>
 
@@ -96,6 +99,7 @@ class AllPosts extends Component {
                       >
                         Chat Online/Send Email{" "}
                       </Link>
+
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import HospitalAvatar from "../images/hospitalAvatar.png";
 import DeleteHospital from "../hospital/DeleteHospital";
 import FollowProfileButton from "../user/FollowProfileButton";
 import PostByHospital from "../post/PostByHospital";
+import AllAppointments from './AllAppointments'
 
 class DashboardHospital extends Component {
   constructor() {
@@ -106,6 +107,8 @@ class DashboardHospital extends Component {
       <div className="container mt-5 text-center">
         <h1>Dashboard Hospital</h1>
         <div className="row mt-5">
+        
+
           <div className="col-md-6">
             <img
               src={HospitalAvatar}
@@ -154,15 +157,22 @@ class DashboardHospital extends Component {
                 </div>
               </>
             ) : (
-              // <FollowProfileButton
-              //   following={this.state.following}
-              //   onButtonClick={this.clickFollowButton}
-              // />
+         
               ""
             )}
+
           </div>
 
+          {isAuthenticated().hospital &&
+            isAuthenticated().hospital._id === this.state.hospital._id ? (
+              <>
+               <AllAppointments />
+              </>
+            ) : ""}
+
+
           <div className="col-md-12">
+            <h1 className="text-center mt-5">All Posts</h1>
             {posts.map((post, i) => {
               const posterId = post.postedBy ? post.postedBy._id : "";
               const posterName = post.postedBy
@@ -170,6 +180,7 @@ class DashboardHospital extends Component {
                 : "Unknown";
 
               return (
+  
                 <div className="card col-md-12 m-3" key={i}>
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
@@ -205,6 +216,7 @@ class DashboardHospital extends Component {
               );
             })}
           </div>
+    
         </div>
       </div>
     );

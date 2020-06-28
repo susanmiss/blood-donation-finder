@@ -26,6 +26,7 @@ import EditPost from "./post/EditPost";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import SendEmail from './hospital/SendEmail'
+import Appointment from './hospital/Appointment'
 
 
 const MainRouter = () => (
@@ -66,8 +67,8 @@ const MainRouter = () => (
       <Route exact path="/forgot-password" component={ForgotPassword} />
       <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword}
 />
-      <Route exact path="/send-email" component={SendEmail}
-/>
+      <Route exact path="/send-email" component={SendEmail}/>
+      <Route exact path="/appointment" component={Appointment}/>
 
     </Switch>
   <Footer />
