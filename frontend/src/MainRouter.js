@@ -10,7 +10,6 @@ import SigninHospital from "./hospital/SigninHospital";
 import Nav from "./core/Nav";
 import Footer from "./core/Footer";
 import About from "./core/About";
-import WhoCanDonate from "./core/WhoCanDonate";
 import DashboardUser from "./user/DashboardUser";
 import DashboardHospital from "./hospital/DashboardHospital";
 import EditProfileHospital from "./hospital/EditProfileHospital";
@@ -35,7 +34,6 @@ const MainRouter = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/who-can-donate" component={WhoCanDonate} />
       <Route exact path="/all-hospitals" component={AllHospitals} />
       <Route exact path="/all-users" component={AllUsers} />
       <Route exact path="/signup-user" component={SignupUser} />

@@ -44,4 +44,4 @@ const postSchema = new mongoose.Schema({
 module.exports = mongoose.model('Post', postSchema);
 
 //mongoose.Schema.ObjectId
-    //creating a RELATION: ----- Relational db ??????   -------
+    //creating a RELATION: -----  Relational db ??????   -----

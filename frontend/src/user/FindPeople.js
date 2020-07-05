@@ -31,7 +31,7 @@ class FindPeole extends Component {
     const { users } = this.state;
     return (
       <div>
-        <p className="text-center">All Users - List - Super Admin use only</p>
+        <h2 className="text-center">Find Your Friends Here</h2>
 
         <div className="row mt-5 text-center ">
           {/* {JSON.stringify(users)} */}

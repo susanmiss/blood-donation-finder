@@ -12,7 +12,9 @@ const {
 const appointmentController = require('../Controllers/appointments')
 const slotController = require('../Controllers/slot')
 
+
 router.get('/appointments', appointmentController.all);
+
 router.get('/retrieveSlots', slotController.all);
 
 router.post('/appointmentCreate', appointmentController.create);

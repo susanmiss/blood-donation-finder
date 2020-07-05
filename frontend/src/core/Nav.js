@@ -63,7 +63,6 @@ const Nav = ({ history }) => (
 
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          {/* <Link className="nav-item nav-link mr-auto" to="/" style={isActive(history,"/" )}>Home</Link> */}
 
           <Link
             className="nav-item nav-link"
@@ -72,20 +71,8 @@ const Nav = ({ history }) => (
           >
             Hospitals
           </Link>
-
-          <Link
-            className="nav-item nav-link"
-            to="/who-can-donate"
-            style={isActive(history, "/who-can-donate")}
-          >
-            Who Can Donate?
-          </Link>
-
-
-
-          {/* Use a not Link becaouse we are  not trying to navigate the iuser to any other component */}
-
-          {/* CONDICIONAL: to display signout just when is logged In */}
+   
+          {/* Use a not Link because we are  not trying to navigate the user to any other component */}
 
           {isAuthenticated().user && (
             <>
